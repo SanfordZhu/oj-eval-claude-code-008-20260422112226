@@ -1,0 +1,42 @@
+# Problem 2279: echo
+# Read any number of characters, output them exactly
+
+# Strategy: Read character, output it, repeat
+# When we read 0 (EOF), halt
+
+# Main loop
+# Read character into A
+A<I
+
+# Check if A == 0 (EOF)
+# If A == 0, halt
+# We need conditional... Use memory trick:
+# Initialize memory location 0 with halt instruction?
+# Actually we can do: Z<A (halt if A != 0)
+# But we want to halt when A == 0, not when A != 0
+
+# Alternative: Use the fact that [A] is memory address
+# Pre-initialize mem[0] with 1 (halt value)
+# Then do Z<[A] - if A == 0, Z gets mem[0] = 1, halts
+# If A != 0, Z gets mem[A] which is unknown...
+
+# Better: Initialize all memory with 0 except mem[0] = 1
+# But initializing all memory is hard
+
+# Actually, we can do: B<A (copy A to B), then Z<B
+# But we need to transform: if A == 0, Z = 1; else Z = 0
+# We can use a lookup table!
+
+# Initialize lookup table: mem[0] = 1, all other mem[x] = 0
+# But we only need mem[0] = 1, memory is already 0-initialized
+[0]<1
+
+# Now: Z<[A] - if A == 0, Z = mem[0] = 1, halts
+# If A != 0, Z = mem[A] = 0, doesn't halt
+Z<[A]
+
+# Output the character (if not EOF)
+O<A
+
+# Program loops back to start
+# When EOF (A == 0), we halt before outputting 0
