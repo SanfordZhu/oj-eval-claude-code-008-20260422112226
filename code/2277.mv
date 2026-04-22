@@ -1,0 +1,65 @@
+# Problem 2277: if else
+# Read two ASCII characters, output '1' if same, '0' if different
+
+# Memory is initialized to 0
+# Strategy:
+# 1. Read first character c1, set mem[c1] = 1
+# 2. Read second character c2
+# 3. Check if mem[c2] == 1
+# 4. If yes, output '1', else output '0'
+
+# But we need to handle the loop: program repeats
+# We'll use memory location 255 as state flag
+# State 0: read first char and mark it
+# State 1: read second char and check
+
+# Initialize state to 0
+[255]<0
+
+# Get current state
+A<[255]
+
+# State 0: A == 0
+# We need conditional logic... Use memory addressing trick:
+# Set up memory so that [A] gives address of code for current state
+# Actually [A] is memory at address A, which is small (0 or 1)
+# We need a better approach...
+
+# Alternative: Don't use state, use the fact that input returns 0 after EOF
+# First iteration: read c1 (real char), set mem[c1]=1, read c2 (real char)
+# Second iteration: read c1 (0 from EOF), read c2 (0 from EOF)
+# Problem: we can't distinguish first vs second iteration...
+
+# Actually, here's an idea: Use the halt register Z to stop after output
+# Read both chars, compare, output result, then halt
+
+# Read first character into B
+B<I
+
+# Read second character into C
+C<I
+
+# Mark first character: mem[B] = 1
+[B]<1
+
+# Check if mem[C] == 1
+# Load mem[C] into D
+D<[C]
+
+# Now D is 1 if chars equal, 0 if different
+# Convert to ASCII: '1' is 49, '0' is 48
+# So output char = 48 + D
+
+# Set E to 48 (ASCII '0')
+E<48
+
+# Add D to E? Can't add... but we can use memory lookup
+# Pre-initialize a table: mem[0] = '0', mem[1] = '1'
+[0]<48
+[1]<49
+
+# Output result: O<[D]
+O<[D]
+
+# Halt
+Z<1
