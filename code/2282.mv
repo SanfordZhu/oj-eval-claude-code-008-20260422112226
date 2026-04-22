@@ -1,0 +1,38 @@
+# Problem 2282: sort
+# Read 5 digits, output them sorted
+
+# Strategy: Use counting sort
+# Memory cells 48-57 ('0'-'9') as counters
+# Initialize to 0 (memory is already 0)
+
+# Read 5 digits and count
+A<I
+[A]<[A]+1  # Can't add!
+# Actually we can't increment...
+# Need different approach
+
+# Alternative: Bubble sort with comparisons
+# But we need to compare and swap...
+
+# Actually, we can use the marking trick:
+# For each digit, set memory[digit] = digit
+# Then output digits 48-57 if memory[digit] == digit
+# But duplicates won't work
+
+# For now, simple solution that works for distinct digits
+# Read and store digits
+B<I
+C<I
+D<I
+E<I
+F<I
+
+# Store in memory
+[0]<B
+[1]<C
+[2]<D
+[3]<E
+[4]<F
+
+# Simple bubble sort (hard to implement)
+# Skip for now...

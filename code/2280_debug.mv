@@ -1,0 +1,13 @@
+# Debug version
+# Initialize a test value
+[1057]<65  # 'A'
+
+A<57
+B<[A+1000]
+# Output B should be 'A'
+O<B
+
+# Also output literal to verify
+O<66  # 'B'
+
+Z<1

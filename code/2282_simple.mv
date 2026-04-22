@@ -1,0 +1,36 @@
+# Simple sort for distinct digits
+# Read 5 digits, mark them, output 0-9 if marked
+# Only works if digits are distinct
+
+# Read and mark
+A<I
+[A]<65  # marker
+B<I
+[B]<65
+C<I
+[C]<65
+D<I
+[D]<65
+E<I
+[E]<65
+
+# Output sorted
+# Check digits 48-57 ('0'-'9')
+[48]<48  # '0'
+[49]<49  # '1'
+[50]<50  # '2'
+[51]<51  # '3'
+[52]<52  # '4'
+[53]<53  # '5'
+[54]<54  # '6'
+[55]<55  # '7'
+[56]<56  # '8'
+[57]<57  # '9'
+
+# Output if marked (has value 65)
+F<48
+G<[F]
+# If G==65, output F, else skip
+# Need conditional output...
+
+# Actually too complex. Abandon.

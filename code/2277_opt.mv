@@ -1,0 +1,21 @@
+# Optimized if else
+# Read two chars, output '1' if same, '0' if different
+# Current: 65 lines, target: reduce
+
+# Read first char to B
+B<I
+# Read second char to C
+C<I
+# Mark B in memory
+[B]<1
+# Check C
+D<[C]
+# Convert D (0/1) to ASCII '0'/'1'
+# D is 0 or 1, need 48 or 49
+# Use table at addresses 0 and 1
+[0]<48
+[1]<49
+# Output result
+O<[D]
+# Halt
+Z<1

@@ -1,0 +1,26 @@
+# Optimized Hello World
+# Store chars in consecutive memory and output in loop-like fashion
+# But we can't loop, so unroll minimally
+
+[0]<72
+O<[0]
+[1]<101
+O<[1]
+[2]<108
+O<[2]
+O<[2]
+[3]<111
+O<[3]
+[4]<32
+O<[4]
+[5]<87
+O<[5]
+O<[3]
+[6]<114
+O<[6]
+O<[2]
+[7]<100
+O<[7]
+[8]<33
+O<[8]
+Z<1

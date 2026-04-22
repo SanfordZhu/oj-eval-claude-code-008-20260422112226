@@ -1,0 +1,5 @@
+# Test O<0
+O<65  # 'A'
+O<0   # should output nothing
+O<66  # 'B'
+Z<1
