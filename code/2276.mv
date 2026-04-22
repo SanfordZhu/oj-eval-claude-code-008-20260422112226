@@ -1,0 +1,53 @@
+# Hello World program for problem 2276
+# Output "Hello World!" character by character
+
+# Store 'H' (72) in memory location 0
+[0]<72
+# Output it
+O<[0]
+
+# Store 'e' (101) in memory location 1
+[1]<101
+O<[1]
+
+# Store 'l' (108) in memory location 2
+[2]<108
+O<[2]
+
+# Output 'l' again
+O<[2]
+
+# Store 'o' (111) in memory location 3
+[3]<111
+O<[3]
+
+# Store ' ' (32) in memory location 4
+[4]<32
+O<[4]
+
+# Store 'W' (87) in memory location 5
+[5]<87
+O<[5]
+
+# Store 'o' (111) in memory location 6
+[6]<111
+O<[6]
+
+# Store 'r' (114) in memory location 7
+[7]<114
+O<[7]
+
+# Store 'l' (108) in memory location 8
+[8]<108
+O<[8]
+
+# Store 'd' (100) in memory location 9
+[9]<100
+O<[9]
+
+# Store '!' (33) in memory location 10
+[10]<33
+O<[10]
+
+# Halt the program
+Z<1
